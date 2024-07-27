@@ -33,7 +33,7 @@ export function Hero() {
       </p>
       <div className="mt-10 flex justify-center gap-x-6">
       
-        <Button href="/register">Get started free</Button>
+        <Button href="http://eepurl.com/iUKwJI">Get started free</Button>
         <Button
           href="#features"
           variant="outline"

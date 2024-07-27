@@ -27,7 +27,7 @@ export function CallToAction() {
           <p className="mt-4 text-lg tracking-tight text-white">
           Elevate your investment strategy with our software. Empower yourself with the tools to make informed decisions and efficiently manage your portfolio.
           </p>
-          <Button href="/register" color="white" className="mt-10">
+          <Button href="http://eepurl.com/iUKwJI" color="white" className="mt-10">
             Register Now
           </Button>
         </div>
