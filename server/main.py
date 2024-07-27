@@ -17,6 +17,7 @@ app.add_middleware(
     allow_headers=["*"],  # Allows all headers
 )
 
+
 @app.get(api_prefix + "/")
 def home():
     """Home route for the API.
@@ -24,13 +25,8 @@ def home():
     Returns:
         json: shows that the API is working.
     """
-    return {"Hello": "World",
-            "users":{
-                'max',
-                "icarus",
-                "Ransford",
-                "solomon"
-            }}
+    return {"Hello": "World", "users": {"max", "icarus", "Ransford", "solomon"}}
+
 
 @app.post(api_prefix + "/get_property_value/")
 async def get_property_value(valuation: Valuation):
