@@ -12,27 +12,27 @@ import screenshotVatReturns from '@/images/screenshots/vat-returns.png'
 
 const features = [
   {
-    title: 'Payroll',
+    title: 'Property valuation',
     description:
-      "Keep track of everyone's salaries and whether or not they've been paid. Direct deposit not supported.",
+      "Utilize advanced algorithms to provide accurate property valuations based on real-time market data and comparable properties. Save time and make informed decisions with our automated valuation tool.",
     image: screenshotPayroll,
   },
   {
-    title: 'Claim expenses',
+    title: 'Financial Projections and Analysis',
     description:
-      "All of your receipts organized into one place, as long as you don't mind typing in the data by hand.",
+      "Easily calculate key financial metrics such as ROI, cash flow, and cap rates. Customize assumptions to see how different variables impact your investment performance, ensuring you have a clear understanding of potential returns.",
     image: screenshotExpenses,
   },
   {
-    title: 'VAT handling',
+    title: 'Access to Market Trends',
     description:
-      "We only sell our software to companies who don't deal with VAT at all, so technically we do all the VAT stuff they need.",
+      "Gain insights from historical data and trends for various regions and property types. Stay ahead of the market with up-to-date information and make data-driven investment decisions.",
     image: screenshotVatReturns,
   },
   {
-    title: 'Reporting',
+    title: 'Scenario Analysis',
     description:
-      'Easily export your data into an Excel spreadsheet where you can do whatever the hell you want with it.',
+      'Test different investment scenarios and outcomes to understand potential risks and rewards. Use our tool to simulate various strategies and choose the best path for your investment goals.',
     image: screenshotReporting,
   },
 ]
@@ -72,12 +72,9 @@ export function PrimaryFeatures() {
       <Container className="relative">
         <div className="max-w-2xl md:mx-auto md:text-center xl:max-w-none">
           <h2 className="font-display text-3xl tracking-tight text-white sm:text-4xl md:text-5xl">
-            Everything you need to run your books.
+            Everything you need to run your real estate properties.
           </h2>
-          <p className="mt-6 text-lg tracking-tight text-blue-100">
-            Well everything you need if you aren’t that picky about minor
-            details like tax compliance.
-          </p>
+         
         </div>
         <Tab.Group
           as="div"

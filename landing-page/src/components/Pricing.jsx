@@ -122,13 +122,13 @@ export function Pricing() {
             description="Perfect for small / medium sized businesses."
             href="/register"
             features={[
-              'Send 25 quotes and invoices',
-              'Connect up to 5 bank accounts',
-              'Track up to 50 expenses per month',
-              'Automated payroll support',
-              'Export up to 12 reports',
-              'Bulk reconcile transactions',
-              'Track in multiple currencies',
+              'Analyze up to 100 properties per month',
+              'Connect up to 5 data sources for market trends',
+              'Calculate financial metrics for up to 100 properties',
+              'Automated property valuation support',
+              'Generate up to 12 investment reports',
+              'Bulk import property data',
+              'Analyze investments throughout the nation.',
             ]}
           />
         

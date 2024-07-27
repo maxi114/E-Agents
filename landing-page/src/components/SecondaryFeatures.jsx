@@ -11,9 +11,9 @@ import screenshotProfitLoss from '@/images/screenshots/profit-loss.png'
 const features = [
   {
     name: 'Reporting',
-    summary: 'Stay on top of things with always up-to-date reporting features.',
+    summary: 'Stay on top of your investments with always up-to-date reporting features.',
     description:
-      'We talked about reporting in the section above but we needed three items here, so mentioning it one more time for posterity.',
+      'Generate professional investment reports for stakeholders and ensure you\'re always informed with the latest data.',
     image: screenshotProfitLoss,
     icon: function ReportingIcon() {
       let id = useId()
@@ -46,9 +46,9 @@ const features = [
   {
     name: 'Inventory',
     summary:
-      'Never lose track of what’s in stock with accurate inventory tracking.',
+      'Never lose track of your property portfolio.',
     description:
-      'We don’t offer this as part of our software but that statement is inarguably true. Accurate inventory tracking would help you for sure.',
+      'Keep detailed records of all your properties and their performance in one convenient place.',
     image: screenshotInventory,
     icon: function InventoryIcon() {
       return (
@@ -72,11 +72,11 @@ const features = [
     },
   },
   {
-    name: 'Contacts',
+    name: 'Data Integration',
     summary:
-      'Organize all of your contacts, service providers, and invoices in one place.',
+      'Access comprehensive market data to evaluate potential investments.',
     description:
-      'This also isn’t actually a feature, it’s just some friendly advice. We definitely recommend that you do this, you’ll feel really organized and professional.',
+      'Organize all of your market insights, property data, and financial metrics in one place for a streamlined investment process.',
     image: screenshotContacts,
     icon: function ContactsIcon() {
       return (

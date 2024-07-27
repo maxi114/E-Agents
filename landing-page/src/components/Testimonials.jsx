@@ -11,7 +11,7 @@ const testimonials = [
   [
     {
       content:
-        'E-Agents is so easy to use I can’t help but wonder if it’s really doing the things the government expects me to do.',
+        'With E-Agents, I can easily track my investment performance and make data-driven decisions to optimize my portfolio.',
       author: {
         name: 'Sheryl Berge',
         role: 'CEO at Lynch LLC',
@@ -20,7 +20,7 @@ const testimonials = [
     },
     {
       content:
-        'I’m trying to get a hold of someone in support, I’m in a lot of trouble right now and they are saying it has something to do with my books. Please get back to me right away.',
+        'E-Agents is so intuitive, it makes complex real estate analysis feel effortless while ensuring compliance with industry standards.',
       author: {
         name: 'Amy Hahn',
         role: 'Director at Velocity Industries',
@@ -31,7 +31,7 @@ const testimonials = [
   [
     {
       content:
-        'The best part about E-Agents is every time I pay my employees, my bank balance doesn’t go down like it used to. Looking forward to spending this extra cash when I figure out why my card is being declined.',
+        'E-Agents has revolutionized how I analyze potential investments. The automated property valuation feature saves me hours of research time.',
       author: {
         name: 'Leland Kiehn',
         role: 'Founder of Kiehn and Sons',
@@ -40,7 +40,7 @@ const testimonials = [
     },
     {
       content:
-        'There are so many things I had to do with my old software that I just don’t do at all with E-Agents. Suspicious but I can’t say I don’t love it.',
+        'The financial projections tool in E-Agents helped me make a confident decision on my latest property acquisition. It\'s like having a financial advisor at my fingertips.',
       author: {
         name: 'Erin Powlowski',
         role: 'COO at Armstrong Inc',
@@ -51,7 +51,7 @@ const testimonials = [
   [
     {
       content:
-        'I used to have to remit tax to the EU and with E-Agents I somehow don’t have to do that anymore. Nervous to travel there now though.',
+        'I love how E-Agents allows me to track market trends across different regions. It\'s opened up new investment opportunities I wouldn\'t have considered before.',
       author: {
         name: 'Peter Renolds',
         role: 'Founder of West Inc',
@@ -60,7 +60,7 @@ const testimonials = [
     },
     {
       content:
-        'This is the fourth email I’ve sent to your support team. I am literally being held in jail for tax fraud. Please answer your damn emails, this is important.',
+        'E-Agents\' professional report generation has elevated my presentations to investors. It\'s helped me secure funding for two major projects this year.',
       author: {
         name: 'Amy Hahn',
         role: 'Director at Velocity Industries',
