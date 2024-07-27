@@ -114,24 +114,11 @@ export function Pricing() {
             work well for you.
           </p>
         </div>
-        <div className="-mx-4 mt-16 grid max-w-2xl grid-cols-1 gap-y-10 sm:mx-auto lg:-mx-8 lg:max-w-none lg:grid-cols-3 xl:mx-0 xl:gap-x-8">
-          <Plan
-            name="Starter"
-            price="$9"
-            description="Good for anyone who is self-employed and just getting started."
-            href="/register"
-            features={[
-              'Send 10 quotes and invoices',
-              'Connect up to 2 bank accounts',
-              'Track up to 15 expenses per month',
-              'Manual payroll support',
-              'Export up to 3 reports',
-            ]}
-          />
+        <div className="-mx-4 mt-16 grid gap-y-10 sm:mx-auto lg:-mx-8 lg:max-w-20 lg:justify-center xl:mx-0 xl:gap-x-8">
           <Plan
             featured
             name="Small business"
-            price="$15"
+            price="Free"
             description="Perfect for small / medium sized businesses."
             href="/register"
             features={[
@@ -144,19 +131,7 @@ export function Pricing() {
               'Track in multiple currencies',
             ]}
           />
-          <Plan
-            name="Enterprise"
-            price="$39"
-            description="For even the biggest enterprise companies."
-            href="/register"
-            features={[
-              'Send unlimited quotes and invoices',
-              'Connect up to 15 bank accounts',
-              'Track up to 200 expenses per month',
-              'Automated payroll support',
-              'Export up to 25 reports, including TPS',
-            ]}
-          />
+        
         </div>
       </Container>
     </section>
