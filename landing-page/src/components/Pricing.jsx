@@ -120,7 +120,7 @@ export function Pricing() {
             name="Small business"
             price="Free"
             description="Perfect for small / medium sized businesses."
-            href="/register"
+            href="http://eepurl.com/iUKwJI"
             features={[
               'Analyze up to 100 properties per month',
               'Connect up to 5 data sources for market trends',
