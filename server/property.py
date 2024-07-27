@@ -8,13 +8,9 @@ class Property(BaseModel):
     size: Optional[float] = 0.0
     bedrooms: Optional[int] = 1
     bathrooms: Optional[int] = 1
-    roi: Optional[float] = 0.0
     comparable_properties: Optional[List["Property"]] = []
 
     def getComparableProperties(self) -> List["Property"]:
-        pass
-
-    def calculateROI(self) -> float:
         pass
 
     def to_dict(self) -> dict:

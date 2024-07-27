@@ -61,7 +61,7 @@ async def get_market(market: Market):
 
 
 @app.post(api_prefix + "/get_property_roi/")
-async def get_property_roi(property: Property):
+async def get_property_roi(valuation: Valuation):
     """Get the ROI of a property.
 
     Args:
@@ -71,4 +71,4 @@ async def get_property_roi(property: Property):
         json: The ROI of the property.
     """
 
-    return property.calculateROI()
+    return valuation.calculateROI()
