@@ -1,6 +1,7 @@
 from typing import Union
 
 from fastapi import FastAPI
+from valuation import Valuation
 
 app = FastAPI()
 api_prefix = "/api/v1"
@@ -14,3 +15,17 @@ def home():
         json: shows that the API is working.
     """
     return {"Hello": "World"}
+
+
+@app.post(api_prefix + "/get_property_value/")
+async def get_property_value(valuation: Valuation):
+    """Get the value of a property.
+
+    Args:
+        valuation (Valuation): The property to be valued.
+
+    Returns:
+        json: The value of the property.
+    """
+
+    return valuation.to_dict()
