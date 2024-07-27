@@ -7,5 +7,10 @@ api_prefix = "/api/v1"
 
 
 @app.get(api_prefix + "/")
-def read_root():
+def home():
+    """Home route for the API.
+
+    Returns:
+        json: shows that the API is working.
+    """
     return {"Hello": "World"}
