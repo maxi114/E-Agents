@@ -1,14 +1,15 @@
 from pydantic import BaseModel
+from typing import List, Optional
 
 
 class Property(BaseModel):
     address: str
     propertyType: str
-    size: float
-    bedrooms: int
-    bathrooms: int
+    size: Optional[float] = 0.0
+    bedrooms: Optional[int] = 1
+    bathrooms: Optional[int] = 1
 
-    def getComparableProperties(self) -> list["Property"]:
+    def getComparableProperties(self) -> List["Property"]:
         pass
 
     def to_dict(self) -> dict:

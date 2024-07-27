@@ -1,10 +1,11 @@
 from property import Property
-from pydantic import BaseModel
+from pydantic import BaseModel, validator
+from typing import Optional
 
 
 class Valuation(BaseModel):
-    estimatedValue: float | None
-    confidenceScore: float | None
+    estimatedValue: Optional[float] = 0.0
+    confidenceScore: Optional[float] = 0.0
     property: Property
 
     def calculateValuation(self) -> float:
