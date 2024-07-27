@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 from pydantic import ValidationError
 from valuation import Valuation
 from market import Market
@@ -6,6 +7,15 @@ from property import Property
 
 app = FastAPI()
 api_prefix = "/api/v1"
+
+# Set up CORS
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Allows all origins
+    allow_credentials=True,
+    allow_methods=["*"],  # Allows all methods
+    allow_headers=["*"],  # Allows all headers
+)
 
 
 @app.get(api_prefix + "/")
@@ -15,7 +25,7 @@ def home():
     Returns:
         json: shows that the API is working.
     """
-    return {"Hello": "World"}
+    return {"Hello": "World", "users": {"max", "icarus", "Ransford", "solomon"}}
 
 
 @app.post(api_prefix + "/get_property_value/")
@@ -28,7 +38,6 @@ async def get_property_value(valuation: Valuation):
     Returns:
         json: The value of the property.
     """
-
     return valuation.to_dict()
 
 
