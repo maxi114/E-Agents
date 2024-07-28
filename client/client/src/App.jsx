@@ -9,6 +9,9 @@ function App() {
   const [locLat, setLocLat] = useState("");
   const [locLong, setLocLong] = useState("");
   const [city, setCity] = useState("");
+  const [propertyType, setPropertyType] = useState("");
+  const [bedrooms, setBedrooms] = useState("");
+  const [bathrooms, setBathrooms] = useState("");
 
   const fetchAPI = async () => {
     const response = await axios.get("http://127.0.0.1:8000/api/v1/");
@@ -45,6 +48,33 @@ function App() {
     initialize();
   }, []);
 
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    if (name === "propertyType") setPropertyType(value);
+    else if (name === "bedrooms") setBedrooms(value);
+    else if (name === "bathrooms") setBathrooms(value);
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const data = {
+      state: state || "",
+      country: country || "",
+      loclat: locLat || "",
+      locLong: locLong || "",
+      city: city || "",
+      property_type: propertyType || "",
+      bedrooms: bedrooms || "",
+      bathrooms: bathrooms || "",
+    };
+    try {
+      const response = await axios.post("http://127.0.0.1:8000/api/v1/get_property_value/", data);
+      console.log(response.data);
+    } catch (error) {
+      console.error("There was an error sending the data!", error.response?.data || error.message);
+    }
+  };
+
   return (
     <>
       <h1>Search Properties</h1>
@@ -54,7 +84,7 @@ function App() {
       <br />
       <br />
 
-      <form>
+      <form onSubmit={handleSubmit}>
         <div className="input-group mb-3">
           <div className="input-group-prepend">
             <span className="input-group-text" id="basic-addon1">
@@ -70,20 +100,58 @@ function App() {
           />
         </div>
 
-        <button type="submit" className="btn btn-primary">
+        <div className="filter">
+          <div className="pfil">
+            <span className="material-symbols-outlined icon">home</span>
+            <select name="propertyType" className="pll Property" onChange={handleChange}>
+              <option value="">Property Type</option>
+              <option value="Single family Home">Single Family Home</option>
+              <option value="Condo">Condo</option>
+              <option value="Townhouse">Townhouse</option>
+              <option value="Manufactured">Manufactured</option>
+              <option value="Multi-Family">Multi-Family</option>
+              <option value="Apartment">Apartment</option>
+            </select>
+          </div>
+
+          <div className="pfil">
+            <span className="material-symbols-outlined icon">bed</span>
+            <select name="bedrooms" className="pl Property" onChange={handleChange}>
+              <option value="">Bedrooms</option>
+              <option value="Studio">Studio</option>
+              <option value="1">1 Bed</option>
+              <option value="2">2 Bed</option>
+              <option value="3">3 Bed</option>
+              <option value="4">4 Bed</option>
+              <option value="5">5 Bed</option>
+              <option value="6+">6+ Beds</option>
+            </select>
+          </div>
+
+          <div className="pfil">
+            <span className="material-symbols-outlined icon">bathroom</span>
+            <select name="bathrooms" className="pl Property" onChange={handleChange}>
+              <option value="">Bathrooms</option>
+              <option value="Studio">Studio</option>
+              <option value="1">1 Bath</option>
+              <option value="1.5">1.5 Bath</option>
+              <option value="2">2 Bath</option>
+              <option value="2.5">2.5 Bath</option>
+              <option value="3">3 Bath</option>
+              <option value="3.5">3.5 Bath</option>
+              <option value="4+">4+ Baths</option>
+            </select>
+          </div>
+        </div>
+
+        <br />
+        <br />
+        <button type="submit" className="btn btn-primary schbtn">
           Search
         </button>
       </form>
 
       <Evaluation />
-
-      {/*<div>
-        <p>State: {state}</p>
-        <p>Country: {country}</p>
-        <p>Latitude: {locLat}</p>
-        <p>Longitude: {locLong}</p>
-        <p>City: {city}</p>
-      </div>*/}
     </>
   );
 }

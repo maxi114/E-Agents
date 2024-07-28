@@ -18,6 +18,54 @@
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
+.filter {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Adjust the gap as needed */
+}
+
+.schbtn{
+  width: 100%;
+}
+
+.pfil {
+  display: flex;
+  align-items: center;
+  border:1px solid #ced4da;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-radius: 5px;
+  /* Adjust the shadow as needed */
+}
+
+.pfil:hover{
+  cursor: pointer;
+  color: rgb(37 99 235) ;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+}
+.Property{
+  background-color: white;
+  border: none;
+  color: rgb(74, 74, 74);
+}
+
+select:focus {
+  outline: none; /* Ensure no outline on focus */
+}
+
+.Property:hover{
+  cursor: pointer;
+}
+.icon {
+  margin-right: 8px; /* Adjust the spacing between the icon and the dropdown */
+}
+
+select {
+  padding: 5px 10px;
+  font-size: 14px;
+}
+
+
 @keyframes logo-spin {
   from {
     transform: rotate(0deg);

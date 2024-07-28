@@ -4,6 +4,7 @@ from pydantic import ValidationError
 from valuation import Valuation
 from market import Market
 from property import Property
+from pydantic import BaseModel, ValidationError
 
 app = FastAPI()
 api_prefix = "/api/v1"
@@ -28,6 +29,17 @@ def home():
     return {"Hello": "World", "users": {"max", "icarus", "Ransford", "solomon"}}
 
 
+class Valuation(BaseModel):
+    property_type: str
+    bedrooms: str
+    bathrooms: str
+    city: str
+    country: str
+    loclat: float
+    locLong: float
+    state: str
+    
+
 @app.post(api_prefix + "/get_property_value/")
 async def get_property_value(valuation: Valuation):
     """Get the value of a property.
@@ -38,7 +50,7 @@ async def get_property_value(valuation: Valuation):
     Returns:
         json: The value of the property.
     """
-    return valuation.to_dict()
+    return { Valuation }
 
 
 @app.post(api_prefix + "/get_comparable_properties/")
