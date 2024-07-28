@@ -1,6 +1,7 @@
 from fastapi import FastAPI, Depends, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from valuation import Valuation
+from property import Property, Generate_Property
 from market import Market
 from pydantic import BaseModel, ValidationError
 from sqlalchemy.orm import Session
@@ -107,6 +108,22 @@ async def calculate_cap_rate(valuation: Valuation):
     return {"data": valuation.calculate_cap_rate()}
 
 
+@app.post(api_prefix + "/property-comparables/")
+async def get_comparable_properties(valuation: Valuation, max_results: int = 5):
+    """Get comparable properties for a property.
+
+    Args:
+        valuation (Valuation): The property to get comparable properties for.
+
+    Returns:
+        json: The comparable properties for the property.
+    """
+    valuation.get_comparable_properties(
+        property_type=valuation.property.propertyType, max_results=max_results
+    )
+    return {"data": valuation}
+
+
 @app.post(api_prefix + "/market/")
 async def get_market(market: Market):
     """Get the market data in a certain state.
@@ -118,4 +135,8 @@ async def get_market(market: Market):
         json: The market data for the a certain state.
     """
 
+    market.set_valuations()
+    market.set_min_price()
+    market.set_max_price()
+    market.set_avg_price()
     return {"data": market}

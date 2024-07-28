@@ -1,6 +1,6 @@
 from pydantic import BaseModel
 from typing import List, Optional
-from valuation import Valuation
+from valuation import Valuation, Generate_Valuation
 
 
 class Market(BaseModel):
@@ -9,8 +9,10 @@ class Market(BaseModel):
     avgPrice: Optional[float] = 0.0
     valuations: Optional[List["Valuation"]] = []
     state: str
+    city: str
+    propertyType: str
 
-    def get_min_price(self) -> float:
+    def set_min_price(self):
         if not self.valuations:
             return 0.0
 
@@ -21,9 +23,7 @@ class Market(BaseModel):
         )
         self.minPrice = min_price
 
-        return min_price
-
-    def get_max_price(self) -> float:
+    def set_max_price(self):
         if not self.valuations:
             return 0.0
 
@@ -34,9 +34,7 @@ class Market(BaseModel):
         )
         self.maxPrice = max_price
 
-        return max_price
-
-    def get_avg_price(self) -> float:
+    def set_avg_price(self):
         if not self.valuations:
             return 0.0
 
@@ -49,4 +47,10 @@ class Market(BaseModel):
         avg_price = total / count if count > 0 else 0.0
         self.avgPrice = avg_price
 
-        return avg_price
+    def set_valuations(self, max_results: int = 10):
+        self.valuations = [
+            Generate_Valuation(
+                propertyType=self.propertyType, state=self.state, city=self.city
+            )
+            for _ in range(max_results)
+        ]
