@@ -45,7 +45,7 @@ class Market(BaseModel):
         )
         count = sum(1 for val in self.valuations if val.estimatedValue is not None)
         avg_price = total / count if count > 0 else 0.0
-        self.avgPrice = avg_price
+        self.avgPrice = round(avg_price, 2)
 
     def set_valuations(self, max_results: int = 10):
         self.valuations = [
