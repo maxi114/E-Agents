@@ -50,7 +50,7 @@ async def get_property_value(valuation: Valuation):
     Returns:
         json: The value of the property.
     """
-    return { Valuation }
+    return { "data": valuation } 
 
 
 @app.post(api_prefix + "/get_comparable_properties/")
