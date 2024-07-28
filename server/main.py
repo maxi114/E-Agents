@@ -1,10 +1,9 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Depends, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
-from pydantic import ValidationError
 from valuation import Valuation
 from market import Market
-from property import Property
 from pydantic import BaseModel, ValidationError
+from sqlalchemy.orm import Session
 
 app = FastAPI()
 api_prefix = "/api/v1"
@@ -24,23 +23,12 @@ def home():
     """Home route for the API.
 
     Returns:
-        json: shows that the API is working.
+        json: Shows that the API is working.
     """
-    return {"Hello": "World", "users": {"max", "icarus", "Ransford", "solomon"}}
+    return {"Hello": "World", "users": {"max", "icarus", "ransford", "solomon"}}
 
 
-class Valuation(BaseModel):
-    property_type: str
-    bedrooms: str
-    bathrooms: str
-    city: str
-    country: str
-    loclat: float
-    locLong: float
-    state: str
-    
-
-@app.post(api_prefix + "/get_property_value/")
+@app.post(api_prefix + "/property-value/")
 async def get_property_value(valuation: Valuation):
     """Get the value of a property.
 
@@ -50,24 +38,76 @@ async def get_property_value(valuation: Valuation):
     Returns:
         json: The value of the property.
     """
-    return { "data": valuation } 
+
+    return {"data": valuation}
 
 
-@app.post(api_prefix + "/get_comparable_properties/")
-async def get_comparable_properties(property: Property):
-    """Get the comparable properties for a property.
+@app.post(api_prefix + "/property-rental-income/")
+async def get_annual_rental_income(valuation: Valuation):
+    """Get the annual rental income of a property.
 
     Args:
-        property (Property): The property to get comparable properties for.
+        valuation (Valuation): The property to get the annual rental income for.
 
     Returns:
-        json: The comparable properties for the property.
+        json: The annual rental income of the property.
     """
+    return {"data": valuation.get_annual_rental_income()}
 
-    return property.getComparableProperties()
+
+@app.post(api_prefix + "/property-roi/")
+async def calculate_roi(valuation: Valuation):
+    """Calculate the return on investment of a property.
+
+    Args:
+        valuation (Valuation): The property to calculate the ROI for.
+
+    Returns:
+        json: The return on investment of the property.
+    """
+    return {"data": valuation.calculate_roi()}
 
 
-@app.post(api_prefix + "/get_market/")
+@app.post(api_prefix + "/property-square-foot-price/")
+async def calculate_price_per_square_foot(valuation: Valuation):
+    """Calculate the price per square foot of a property.
+
+    Args:
+        valuation (Valuation): The property to calculate the price per square foot for.
+
+    Returns:
+        json: The price per square foot of the property.
+    """
+    return {"data": valuation.calculate_price_per_square_foot()}
+
+
+@app.post(api_prefix + "/property-rent-multiplier/")
+async def calculate_gross_rent_multiplier(valuation: Valuation):
+    """Calculate the gross rent multiplier of a property.
+
+    Args:
+        valuation (Valuation): The property to calculate the gross rent multiplier for.
+
+    Returns:
+        json: The gross rent multiplier of the property.
+    """
+    return {"data": valuation.calculate_gross_rent_multiplier()}
+
+
+@app.post(api_prefix + "/property-cap-rate/")
+async def calculate_cap_rate(valuation: Valuation):
+    """Calculate the capitalization rate of a property.
+
+    Args:
+        valuation (Valuation): The property to calculate the cap rate for.
+
+    Returns:
+        json: The capitalization rate of the property.
+    """
+    return {"data": valuation.calculate_cap_rate()}
+
+
+@app.post(api_prefix + "/market/")
 async def get_market(market: Market):
     """Get the market data in a certain state.
 
@@ -78,18 +118,4 @@ async def get_market(market: Market):
         json: The market data for the a certain state.
     """
 
-    return market.to_dict()
-
-
-@app.post(api_prefix + "/get_property_roi/")
-async def get_property_roi(valuation: Valuation):
-    """Get the ROI of a property.
-
-    Args:
-        property (Property): The property to get the ROI for.
-
-    Returns:
-        json: The ROI of the property.
-    """
-
-    return valuation.calculateROI()
+    return {"data": market}

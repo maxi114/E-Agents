@@ -10,20 +10,43 @@ class Market(BaseModel):
     valuations: Optional[List["Valuation"]] = []
     state: str
 
-    def getMinPrice(self) -> float:
-        pass
+    def get_min_price(self) -> float:
+        if not self.valuations:
+            return 0.0
 
-    def getMaxPrice(self) -> float:
-        pass
+        min_price = min(
+            val.estimatedValue
+            for val in self.valuations
+            if val.estimatedValue is not None
+        )
+        self.minPrice = min_price
 
-    def getAvgPrice(self) -> float:
-        pass
+        return min_price
 
-    def to_dict(self) -> dict:
-        return {
-            "minPrice": self.minPrice,
-            "maxPrice": self.maxPrice,
-            "avgPrice": self.avgPrice,
-            "state": self.state,
-            "zipCode": self.zipCode,
-        }
+    def get_max_price(self) -> float:
+        if not self.valuations:
+            return 0.0
+
+        max_price = max(
+            val.estimatedValue
+            for val in self.valuations
+            if val.estimatedValue is not None
+        )
+        self.maxPrice = max_price
+
+        return max_price
+
+    def get_avg_price(self) -> float:
+        if not self.valuations:
+            return 0.0
+
+        total = sum(
+            val.estimatedValue
+            for val in self.valuations
+            if val.estimatedValue is not None
+        )
+        count = sum(1 for val in self.valuations if val.estimatedValue is not None)
+        avg_price = total / count if count > 0 else 0.0
+        self.avgPrice = avg_price
+
+        return avg_price
