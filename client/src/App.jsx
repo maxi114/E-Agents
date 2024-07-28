@@ -85,8 +85,8 @@ function App() {
       <br />
 
       <form onSubmit={handleSubmit}>
-        <div className="input-group mb-3">
-          <div className="input-group-prepend">
+        <div className="ipg mb-3">
+          <div className="ipgp">
             <span className="input-group-text" id="basic-addon1">
               <i className="fas fa-map-marker-alt"></i>
             </span>
@@ -146,11 +146,12 @@ function App() {
 
         <br />
         <br />
-        <button type="submit" className="btn btn-primary schbtn">
+        <button type="submit" className=" schbtn">
           Search
         </button>
       </form>
 
+<br /><br />
       <Evaluation />
     </>
   );
