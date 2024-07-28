@@ -114,6 +114,7 @@ async def get_comparable_properties(valuation: Valuation, max_results: int = 5):
 
     Args:
         valuation (Valuation): The property to get comparable properties for.
+        max_results (int, optional): The maximum number of comparable properties to get. Defaults to 5.
 
     Returns:
         json: The comparable properties for the property.
